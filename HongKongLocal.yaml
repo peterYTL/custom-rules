@@ -1,0 +1,50 @@
+# HongKongLocal.yaml
+# Mihomo Rule-Provider
+# Purpose: Hong Kong local financial / government services
+# Strategy: conservative domain-only routing; avoid shared/global CDN domains.
+#
+# Recommended provider settings:
+#   behavior: classical
+#   format: yaml
+
+payload:
+  # ----------------------------------------------------------
+  # Bank of China (Hong Kong)
+  # Official site: www.bochk.com
+  # ----------------------------------------------------------
+  - DOMAIN-SUFFIX,bochk.com
+
+  # ----------------------------------------------------------
+  # HSBC Hong Kong
+  # Keep this HK-specific; deliberately do NOT include hsbc.com
+  # ----------------------------------------------------------
+  - DOMAIN-SUFFIX,hsbc.com.hk
+
+  # ----------------------------------------------------------
+  # ZA Bank
+  # Official site is under bank.za.group.
+  # Using the narrower bank.za.group avoids routing unrelated ZA Global traffic.
+  # ----------------------------------------------------------
+  - DOMAIN-SUFFIX,bank.za.group
+
+  # ----------------------------------------------------------
+  # Faster Payment System (FPS) / HKICL
+  # Covers www.hkicl.com.hk and fps.hkicl.com.hk
+  # ----------------------------------------------------------
+  - DOMAIN-SUFFIX,hkicl.com.hk
+
+  # ----------------------------------------------------------
+  # Hong Kong SAR Government
+  # Covers www.gov.hk and *.gov.hk, including hkma.gov.hk,
+  # info.gov.hk, immd.gov.hk, ird.gov.hk, cr.gov.hk, etc.
+  # ----------------------------------------------------------
+  - DOMAIN-SUFFIX,gov.hk
+
+  # ----------------------------------------------------------
+  # FSM Global / legacy FSMOne / iFAST Financial HK
+  # FSMOne HK was rebranded to FSM Global in 2026.
+  # Keep legacy domains because redirects/resources may still use them.
+  # ----------------------------------------------------------
+  - DOMAIN-SUFFIX,fsmglobal.hk
+  - DOMAIN-SUFFIX,fsmone.com.hk
+  - DOMAIN-SUFFIX,ifastfinancial.com.hk
