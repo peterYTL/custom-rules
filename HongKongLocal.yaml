@@ -22,10 +22,24 @@ payload:
 
   # ----------------------------------------------------------
   # ZA Bank
-  # Official site is under bank.za.group.
-  # Using the narrower bank.za.group avoids routing unrelated ZA Global traffic.
+  # Website / bank subdomains:
+  # https://bank.za.group/
+  # App terms and bank documents also use these exact CDN hosts:
+  # https://cdn.za.group/bank/app/info/en/static/1003321.html
+  # https://cdn.zaticdn.com/bank/za-bank-portal-web/prd/1.0.3/assets/files/en/terms/Terms%20of%20Use%20of%20Website.pdf
+  # CDN hosts can serve other ZA services; domain rules cannot isolate /bank/ paths.
+  # Keep exact CDN hosts rather than all za.group / zaticdn.com traffic.
+  # This is not a complete inventory of the mobile app's API endpoints.
+  # Additional exact hosts observed in ZA Bank App connections (2026-10-11).
+  # bankappgw / appguard are siblings of bank.za.group, not its subdomains.
+  # Keep zajourney.com hosts out until their routing needs are confirmed.
   # ----------------------------------------------------------
   - DOMAIN-SUFFIX,bank.za.group
+  - DOMAIN,bankappgw.za.group
+  - DOMAIN,appguard.za.group
+  - DOMAIN,bank-sbsmarket.zainvest.group
+  - DOMAIN,cdn.za.group
+  - DOMAIN,cdn.zaticdn.com
 
   # ----------------------------------------------------------
   # Faster Payment System (FPS) / HKICL
